@@ -19,7 +19,7 @@ export const vars = createGlobalTheme(":root", {
     },
     fontSizing: {
         T1: "32px",
-        T2: "18px",
+        T2: "20px",
         T3: "14px",
         T4: "12px",
         P1: "10px",    
