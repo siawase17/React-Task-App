@@ -37,6 +37,8 @@ const List: FC<TListProps> = ({ list, boardId }) => {
         dispatch(setModalActive(true));
     }
 
+    console.log(list)
+
     return (
         <div className={listWrapper}>
             <div className={header}>
