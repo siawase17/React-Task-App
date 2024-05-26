@@ -32,7 +32,7 @@ export const deleteButton = style({
     marginRight: "5px",
     cursor: "pointer",
     ":hover" : {
-        backgroundColor: vars.color.task,
+        backgroundColor: vars.color.taskHover,
         boxShadow: vars.shadow.basic,
         opacity: 0.8
     }
