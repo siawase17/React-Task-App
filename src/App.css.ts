@@ -3,7 +3,7 @@ import { createGlobalTheme, style } from "@vanilla-extract/css";
 export const vars = createGlobalTheme(":root", {
     color: {
         main: "#ffa726",
-        mainDarker: "#ffc8dd",
+        mainDarker: "#FFC8DD",
         mainFaded: "#bde0fe",
         mainFadedBright: "#ffb74da6",
         list: "rgb(235, 236, 240)",
@@ -11,7 +11,7 @@ export const vars = createGlobalTheme(":root", {
         taskHover: "rgb(245, 245, 245)",
         brightText: "#FFF",
         darkText: "rgb(24, 42, 77)",
-        secondaryDarkText: "rgb(94, 108, 132)",
+        secondaryDarkText: "#f3c4fb",
         secondaryDarkTextHover: "rgb(218, 219, 226)",
         selectedTab: "#a2d2ff",
         updateButton: "rgb(237, 180, 88)",
