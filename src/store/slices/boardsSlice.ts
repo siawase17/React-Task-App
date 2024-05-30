@@ -36,6 +36,15 @@ type TDeleteListAction = {
     listId: string;
 }
 
+type TSortAcion = {
+    boardIndex: number;
+    droppableIdStart: string;
+    droppableIdEnd: string;
+    droppableIndexStart: number;
+    droppableIndexEnd: number;
+    draggableId: string;
+}
+
 const initialState: TBoardState = {
     modalActive: false,
     boardArray: [{
@@ -147,9 +156,33 @@ const boardSlice = createSlice({
         },
         setModalActive: (state, { payload }: PayloadAction<boolean>) => {
             state.modalActive = payload
+        },
+        sort: (state, { payload }: PayloadAction<TSortAcion>) => {
+            // 같은 리스트
+            if (payload.droppableIdStart === payload.droppableIdEnd) {
+                const list = state.boardArray[payload.boardIndex].lists.find(
+                    list => list.listId === payload.droppableIdStart
+                );
+                // 변경 아이템 배열에서 삭제, 변경 아이템 리턴
+                const card = list?.tasks.splice(payload.droppableIndexStart, 1);
+                list?.tasks.splice(payload.droppableIndexEnd, 0, ...card!);
+            }
+            // 다른 리스트
+            if (payload.droppableIdStart !== payload.droppableIdEnd) {
+                const listStart = state.boardArray[payload.boardIndex].lists.find(
+                    list => list.listId === payload.droppableIdStart
+                );
+                // 변경 아이템 배열에서 삭제, 변경 아이템 리턴
+                const card = listStart!.tasks.splice(payload.droppableIndexStart, 1);
+
+                const listEnd = state.boardArray[payload.boardIndex].lists.find(
+                    list => list.listId === payload.droppableIdEnd
+                );
+                listEnd?.tasks.splice(payload.droppableIndexEnd, 0, ...card);
+            }
         }
     }
 });
 
-export const { addBoard, deleteBoard, addList, addTask, updateTask, deleteTask, deleteList, setModalActive } = boardSlice.actions;
+export const { addBoard, deleteBoard, addList, addTask, updateTask, deleteTask, deleteList, setModalActive, sort } = boardSlice.actions;
 export const boardsReducer = boardSlice.reducer;
