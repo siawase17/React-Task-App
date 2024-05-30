@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FC, useRef } from 'react'
+import React, { useState, ChangeEvent, FC } from 'react'
 import { FiCheck } from 'react-icons/fi';
 import { icon, input, sideForm } from './SideForm.css';
 import { useTypedDispatch } from '../../../hooks/redux';

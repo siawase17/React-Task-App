@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { container, description, title } from './Task.css';
 import { Draggable } from 'react-beautiful-dnd';
 
@@ -14,7 +14,6 @@ const Task: FC<TTaskProps> = ({
     taskName,
     taskDescription,
     id,
-    boardId,
     index,
 }) => {
     return (
